@@ -32,7 +32,15 @@ public class PurchaseService {
         purchase.setAmount(purchase.getQuantity() * item.getUnit_price());
         return purchaseRepository.save(purchase);
     }
+//    new
+public List<Purchase> getAllPurchases() {
+        return purchaseRepository.findAll();
 
+}
+
+    public Purchase getPurchaseById(Long purchase_id) {
+  return  purchaseRepository.findById(purchase_id).orElse(null);
+    }
     public List<PurchaseSummary> getPurchaseSummaries() {
         return purchaseRepository.findPurchaseSummaries();
     }
